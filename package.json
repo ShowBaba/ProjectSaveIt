@@ -1,0 +1,32 @@
+{
+  "name": "projectsaveit",
+  "version": "1.0.0",
+  "description": "Project SaveIt",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShowBaba/ProjectSaveIt.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "rest",
+    "api"
+  ],
+  "author": "Sam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShowBaba/ProjectSaveIt/issues"
+  },
+  "homepage": "https://github.com/ShowBaba/ProjectSaveIt#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
