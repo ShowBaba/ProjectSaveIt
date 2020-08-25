@@ -39,14 +39,25 @@ const createNote = (req, res) => {
 
 const getOneNote = (req, res) => {
   const id = req.params.id;
+  
   try {
     Note.findById(id)
     .then((note) => {
-      res.status(200).json({
-        success: true,
-        message: `Return ${note.title}`,
-        Note: note
-      });
+      // res.status(200).json({
+      //   success: true,
+      //   message: `Return ${note.title}`,
+      //   Note: note
+      // });
+      if (!note) {
+        res.status(404).send({
+          message: "No note with id " + id});
+      } else {
+        res.status(200).json({
+          success: true,
+          message: `Return ${note.title}`,
+          Note: note
+        });
+      }
     });
   } catch (err) {
     res.status(500).json({
@@ -63,11 +74,13 @@ const deleteNote = (req, res) => {
     Note.findByIdAndDelete(id)
     .exec()
     .then(() => res.status(204).json({
-      success: true
+      success: true,
+      message: `Note successfully deleted`
     }));
   } catch (error) {
     res.status(500).json({
       success: false,
+      message: err
     });
   }
 };
