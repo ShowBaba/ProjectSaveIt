@@ -1,5 +1,4 @@
 const express = require('express');
-const noteController = require('../controllers/note-controller');
 const { createNote, getAllNotes
     , getOneNote, updateNote, deleteNote } = require('../controllers/note-controller');
 

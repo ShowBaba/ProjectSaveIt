@@ -4,7 +4,6 @@ const logger = require('morgan');
 const userRoute = require('./server/routes/routes.js');
 const express = require("express");
 const cors = require("cors");
-const homeRoute = require('./server/routes/home.route.js');
 // require('dotenv/config');
 const dotenv = require("dotenv");
 dotenv.config();
@@ -35,7 +34,7 @@ db.on('error', err => {
   console.log('Database connection error', err);
 }); **/
 //connect to mongodb
-mongoose.connect('mongodb+srv://projectsaveit_db:saveit42@cluster0.axorg.mongodb.net/saveit42?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
+mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
   if (err) {
     // console.log(`Not connected to database ${err}`);
   } else {
@@ -45,9 +44,15 @@ mongoose.connect('mongodb+srv://projectsaveit_db:saveit42@cluster0.axorg.mongodb
 
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
-homeRoute(app);
+app.get('/', (req, res) => {
+  // res.status(200).json({
+  //     message: 'Welcome to Project Save It',
+  // });
+  res.redirect('/notes');
+});
+
 app.use('/notes', userRoute);
 
 // set up a wildcard route to catch related endpoints and outputs a response.
