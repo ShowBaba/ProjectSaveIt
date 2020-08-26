@@ -5,7 +5,9 @@ const userRoute = require('./server/routes/routes.js');
 const express = require("express");
 const cors = require("cors");
 const homeRoute = require('./server/routes/home.route.js');
-require('dotenv/config');
+// require('dotenv/config');
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 const app = express();
@@ -32,9 +34,8 @@ db.once('open', _ => {
 db.on('error', err => {
   console.log('Database connection error', err);
 }); **/
-
 //connect to mongodb
-mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
+mongoose.connect('mongodb+srv://projectsaveit_db:saveit42@cluster0.axorg.mongodb.net/saveit42?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
   if (err) {
     // console.log(`Not connected to database ${err}`);
   } else {
@@ -44,7 +45,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUr
 
 
 
-const port = 8080;
+const port = 3000;
 
 homeRoute(app);
 app.use('/notes', userRoute);
@@ -61,3 +62,5 @@ app.get('*', (req, res) => {
 app.listen(port, (req, res) => {
   // console.log(`Running server on port ${port}`);
 });
+
+//rerun
