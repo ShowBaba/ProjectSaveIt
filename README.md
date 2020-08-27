@@ -1,4 +1,6 @@
 # ProjectSaveIt
+A simple note API
+
 Endpoints 
 
 * Show All Notes : `GET api/notes/`
