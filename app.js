@@ -4,7 +4,6 @@ const logger = require('morgan');
 const userRoute = require('./server/routes/routes.js');
 const express = require("express");
 const cors = require("cors");
-// require('dotenv/config');
 require("dotenv").config();
 
 
@@ -49,10 +48,10 @@ app.get('/', (req, res) => {
   // res.status(200).json({
   //     message: 'Welcome to Project Save It',
   // });
-  res.redirect('/notes');
+  res.redirect('/api/notes');
 });
 
-app.use('/notes', userRoute);
+app.use('/api/notes', userRoute);
 
 // set up a wildcard route to catch related endpoints and outputs a response.
 app.get('*', (req, res) => {
