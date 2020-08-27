@@ -10,7 +10,7 @@ Endpoints
 * Delete a Note : `DELETE api/notes/:id`
 
 
-#Live
+# Live url
 https://saveitapi.herokuapp.com/api/notes
 
 *Working on more endpoints*
