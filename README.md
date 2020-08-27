@@ -10,5 +10,5 @@ Endpoints
 * Delete a Note : `DELETE api/notes/:id`
 
 
-*Working on adding more endpoints*
+*Working on more endpoints*
 
