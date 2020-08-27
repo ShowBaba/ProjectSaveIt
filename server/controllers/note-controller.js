@@ -1,13 +1,8 @@
 const Note = require('../models/note-model');
 const mongoose = require('mongoose');
 
-// const xU = (req, res) => {
-//   res.send('HELLO USER!');
-// };
 
 const createNote = (req, res) => {
-  // console.log(req.body);
-  // res.send(req.body);
   const note = new Note({
     title: req.body.title,
     note: req.body.description
@@ -15,9 +10,6 @@ const createNote = (req, res) => {
 
   try {
     note.save()
-      // .then(data => {
-      //   res.json(data);
-      // });
       .then((newNote) => {
         res.status(201).json({
           success: true,
@@ -43,11 +35,6 @@ const getOneNote = (req, res) => {
   try {
     Note.findById(id)
     .then((note) => {
-      // res.status(200).json({
-      //   success: true,
-      //   message: `Return ${note.title}`,
-      //   Note: note
-      // });
       if (!note) {
         res.status(404).send({
           message: "No note with id " + id});
@@ -118,7 +105,6 @@ const getAllNotes = (req, res) => {
           message: 'A list of all notes',
           Notes: allNotes
         });
-        // res.send(allNotes);
       });
   }
   catch (err) {
