@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 exports.createNote = ((req, res) => {
   const note = new Note({
     title: req.body.title,
-    note: req.body.description
+    note: req.body.note
   });
 
   try {

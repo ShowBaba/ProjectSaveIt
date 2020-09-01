@@ -1,5 +1,5 @@
 # ProjectSaveIt
-A simple note API
+A NodeJs API that takes user notes and store in an online databse
 
 Endpoints 
 
@@ -9,6 +9,13 @@ Endpoints
 * Update a Note : `PATCH api/notes/:id`
 * Delete a Note : `DELETE api/notes/:id`
 
+* **Sample Call:**
+```
+{
+	"title": "Note title",
+	"note": "Note body"
+}
+```
 
 # URL
 https://saveitapi.herokuapp.com/api/notes
