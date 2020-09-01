@@ -1,6 +1,6 @@
 const express = require('express');
 const { createNote, getAllNotes
-    , getOneNote, updateNote, deleteNote } = require('../controllers/note-controller');
+    , getOneNote, updateNote, deleteNote } = require('../controllers/note-controller.js');
 
 
 const router = express.Router();

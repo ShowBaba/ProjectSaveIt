@@ -2,7 +2,7 @@ const Note = require('../models/note-model');
 const mongoose = require('mongoose');
 
 
-const createNote = (req, res) => {
+exports.createNote = ((req, res) => {
   const note = new Note({
     title: req.body.title,
     note: req.body.description
@@ -25,11 +25,11 @@ const createNote = (req, res) => {
       error: err.message,
     });
   }
-};
+});
 
 
 
-const getOneNote = (req, res) => {
+exports.getOneNote = ((req, res) => {
   const id = req.params.id;
   
   try {
@@ -53,9 +53,9 @@ const getOneNote = (req, res) => {
       error: err.message,
     });
   }
-};
+});
 
-const deleteNote = (req, res) => {
+exports.deleteNote = ((req, res) => {
   const id = req.params.id;
   try {
     Note.findByIdAndDelete(id)
@@ -70,9 +70,9 @@ const deleteNote = (req, res) => {
       message: err
     });
   }
-};
+});
 
-const updateNote = (req, res) => {
+exports.updateNote = ((req,res) => {
   const id = req.params.id;
   // const updateObject = req.body;
   try {
@@ -93,9 +93,9 @@ const updateNote = (req, res) => {
       error: error.message
     });
   }
-};
+});
 
-const getAllNotes = (req, res) => {
+exports.getAllNotes = ((req, res) => {
   try {
     Note.find()
       .select('_id title description')
@@ -106,14 +106,11 @@ const getAllNotes = (req, res) => {
           Notes: allNotes
         });
       });
-  }
-  catch (err) {
+  }catch (err) {
     res.status(500).json({
       success: false,
       message: 'Server error',
       error: err.message
     });
   }
-};
-module.exports = { createNote, getAllNotes, getOneNote,
-updateNote, deleteNote };
+});

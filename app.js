@@ -37,9 +37,9 @@ db.on('error', err => {
 //connect to mongodb
 mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
   if (err) {
-    // console.log(`Not connected to database ${err}`);
+    console.log(`Not connected to database ${err}`);
   } else {
-    // console.log('Successfully connected to database');
+    console.log('Successfully connected to database');
   }
 });
 
@@ -60,6 +60,6 @@ app.get('*', (req, res) => {
 
 
 app.listen(port, (req, res) => {
-  // console.log(`Running server on port ${port}`);
+  console.log(`Running server on port ${port}`);
 });
 
