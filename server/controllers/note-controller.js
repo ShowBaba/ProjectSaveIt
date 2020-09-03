@@ -11,7 +11,7 @@ exports.createNote = ((req, res) => {
   try {
     note.save()
       .then((newNote) => {
-        res.status(201).json({
+        res.status(200).json({
           success: true,
           message: 'New note created successfully',
           Note: newNote
@@ -19,7 +19,7 @@ exports.createNote = ((req, res) => {
       });
   }
   catch (err) {
-    res.status(500).json({
+    res.status(400).json({
       success: false,
       message: 'Server error. Please try again.',
       error: err.message,
