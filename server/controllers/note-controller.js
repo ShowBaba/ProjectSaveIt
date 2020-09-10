@@ -19,7 +19,7 @@ exports.createNote = ((req, res) => {
       });
   }
   catch (err) {
-    res.status(400).json({
+    res.status(600).json({
       success: false,
       message: 'Server error. Please try again.',
       error: err.message,
@@ -31,7 +31,6 @@ exports.createNote = ((req, res) => {
 
 exports.getOneNote = ((req, res) => {
   const id = req.params.id;
-  
   try {
     Note.findById(id)
     .then((note) => {
