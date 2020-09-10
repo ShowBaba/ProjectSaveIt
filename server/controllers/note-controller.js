@@ -1,5 +1,4 @@
 const Note = require('../models/note-model');
-const mongoose = require('mongoose');
 
 
 exports.createNote = ((req, res) => {
@@ -19,7 +18,7 @@ exports.createNote = ((req, res) => {
       });
   }
   catch (err) {
-    res.status(600).json({
+    res.status(401).json({
       success: false,
       message: 'Server error. Please try again.',
       error: err.message,
