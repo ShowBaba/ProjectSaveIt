@@ -101,7 +101,7 @@ exports.getAllNotes = ((req, res) => {
         res.status(200).json({
           success: true,
           message: 'A list of all notes',
-          Notes: allNotes
+          Notess: allNotes
         });
       });
   }catch (err) {
